@@ -1,2 +1,1 @@
-# Human_Segmentaion
-Human Semantic Segmentation
+# Human Semantic Segmentation 
