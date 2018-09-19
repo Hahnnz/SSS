@@ -9,7 +9,7 @@ def masking(answer, Human_only=False):
         for w in range(width):
             for h in range(height):
                 if not Human_only : mask[b,w,h] = class_color[answer[b,w,h]]
-                elif Human_only : mask[b,w,h] = [0,0,0] if mask[b,w,h,0] == 0 else [255,255,255]
+                elif Human_only : mask[b,w,h] = [255,255,255] if answer[b,w,h] > 0 else [0,0,0]
     return np.array(mask, np.uint8)
 
 def explore_dir(dir,count=0,f_extensions=None):
@@ -49,6 +49,6 @@ def separate_batches(img,label,batch_size):
                 
     return img_batches,label_batches
 
-def im_and_roi_read(path):
+def im_and_roi_read(path, img_size=(128,128)):
     img, roi = cv2.imread(path[0]), cv2.imread(path[1])
-    return cv2.resize(img,(256,256)), cv2.resize(roi,(256,256))
+    return cv2.resize(img,img_size), cv2.resize(roi,img_size)
