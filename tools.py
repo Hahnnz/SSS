@@ -9,7 +9,7 @@ def masking(answer, Human_only=False):
         for w in range(width):
             for h in range(height):
                 if not Human_only : mask[b,w,h] = class_color[answer[b,w,h]]
-                elif Human_only : mask[b,w,h] = [255,255,255] if answer[b,w,h] > 0 else [0,0,0]
+                elif Human_only : mask[b,w,h] = [255,255,255] if answer[b,w,h,0] > 0 else [0,0,0]
     return np.array(mask, np.uint8)
 
 def explore_dir(dir,count=0,f_extensions=None):
