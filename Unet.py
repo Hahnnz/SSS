@@ -1,6 +1,6 @@
 import tensorflow as tf
 import numpy as np
-from models.layers import *
+from layers import *
 
 class Unet:
     def __init__(self,input_shape,output_shape,num_classes,gpu_memory_fraction=None):
